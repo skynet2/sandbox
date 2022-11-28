@@ -7,6 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 package main
 
 import (
+	"github.com/joho/godotenv"
 	"github.com/spf13/cobra"
 	"github.com/trustbloc/edge-core/pkg/log"
 
@@ -16,6 +17,8 @@ import (
 var logger = log.New("issuer-rest")
 
 func main() {
+	_ = godotenv.Load(".env")
+
 	rootCmd := &cobra.Command{
 		Use: "issuer",
 		Run: func(cmd *cobra.Command, args []string) {
